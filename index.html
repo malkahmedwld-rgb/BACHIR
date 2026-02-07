@@ -3,263 +3,249 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="استبيان حول أثر التحول الرقمي في الخدمات المالية على تعزيز الشمول المالي في المناطق الريفية الجزائرية">
-    <meta name="author" content="باحث أكاديمي">
-    <title>دراسة: التحول الرقمي والشمول المالي في ريف الجزائر</title>
+    <title>دراسة: التحول الرقمي والشمول المالي | ريف الجزائر</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        /* --- المتغيرات والتأسيس --- */
+        /* --- 1. إعدادات الألوان والمتغيرات --- */
         :root {
-            --primary-color: #0d47a1; /* أزرق مؤسسي قوي */
-            --secondary-color: #f9a825; /* أصفر ذهبي (يرمز للمال/الاقتصاد) */
-            --bg-color: #f4f6f8;
-            --text-color: #263238;
-            --white: #ffffff;
-            --shadow: 0 4px 20px rgba(0,0,0,0.08);
-            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --primary: #003366; /* أزرق غامق رسمي */
+            --accent: #d4af37;  /* ذهبي فاخر */
+            --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            --glass-bg: rgba(255, 255, 255, 0.95);
+            --shadow: 0 10px 30px rgba(0, 51, 102, 0.15);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+
         body {
-            font-family: 'Tajawal', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.7;
+            font-family: 'Cairo', sans-serif;
+            background: var(--bg-gradient);
+            color: #333;
+            line-height: 1.6;
             overflow-x: hidden;
         }
 
-        /* --- الهيدر (Header) --- */
-        header {
-            background: linear-gradient(135deg, var(--primary-color), #1565c0);
-            color: var(--white);
-            padding: 80px 20px 100px; /* زيادة المساحة السفلية للتداخل */
+        /* --- 2. خلفية مميزة (SVG Pattern) --- */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23003366' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            z-index: -1;
+        }
+
+        /* --- 3. الهيدر البطل (Hero Section) --- */
+        .hero {
+            padding: 80px 20px 120px;
             text-align: center;
+            background: linear-gradient(to bottom, #003366, #004080);
+            color: #fff;
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             position: relative;
-            clip-path: polygon(0 0, 100% 0, 100% 90%, 50% 100%, 0 90%);
         }
 
-        header h1 {
-            font-size: 2.2rem;
-            margin-bottom: 20px;
+        .hero h1 {
+            font-family: 'Tajawal', sans-serif;
+            font-size: 2.5rem;
             font-weight: 800;
-            line-height: 1.3;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
+            margin-bottom: 20px;
+            line-height: 1.4;
         }
 
-        header p {
-            font-size: 1.15rem;
-            opacity: 0.95;
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
             max-width: 800px;
             margin: 0 auto 30px;
-            font-family: 'Amiri', serif;
         }
 
+        /* زر نابض */
         .cta-btn {
-            display: inline-block;
-            background-color: var(--secondary-color);
-            color: #000;
-            padding: 12px 40px;
+            background-color: var(--accent);
+            color: #003366;
+            padding: 15px 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
             border-radius: 50px;
             text-decoration: none;
-            font-weight: bold;
-            box-shadow: 0 4px 15px rgba(249, 168, 37, 0.4);
-            transition: var(--transition);
+            display: inline-block;
+            box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7);
+            animation: pulse 2s infinite;
+            transition: all 0.3s;
         }
 
         .cta-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(249, 168, 37, 0.5);
-            background-color: #ffbc00;
+            transform: scale(1.05);
+            background-color: #fff;
         }
 
-        /* --- البطاقات التعريفية (Info Cards) --- */
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 20px rgba(212, 175, 55, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+        }
 
-        .info-section {
-            margin-top: -60px;
+        /* --- 4. شريط الثقة (Trust Bar) --- */
+        .trust-bar {
+            background: #fff;
+            width: 90%;
+            max-width: 1000px;
+            margin: -60px auto 40px; /* تداخل مع الهيدر */
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
             position: relative;
             z-index: 10;
-            margin-bottom: 50px;
         }
 
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-        }
-
-        .card {
-            background: var(--white);
-            padding: 35px 25px;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
+        .trust-item {
             text-align: center;
-            transition: var(--transition);
-            border-top: 4px solid transparent;
+            padding: 10px;
+            flex: 1;
+            min-width: 150px;
         }
 
-        .card:hover {
-            transform: translateY(-8px);
-            border-top: 4px solid var(--secondary-color);
+        .trust-item i {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 10px;
         }
 
-        .card-icon {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 15px;
+        .trust-item h4 { font-size: 0.9rem; font-weight: 700; margin-bottom: 5px; }
+        .trust-item span { font-size: 0.8rem; color: #666; }
+
+        /* --- 5. حاوية الاستبيان (The Form Container) --- */
+        .survey-container {
+            max-width: 850px;
+            margin: 0 auto 60px;
+            padding: 0 20px;
         }
 
-        .card h3 { margin-bottom: 10px; color: var(--primary-color); }
-        .card p { font-size: 0.95rem; color: #546e7a; }
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 10px; /* تقليل الحواف لزيادة مساحة النموذج */
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            overflow: hidden;
+        }
 
-        /* --- الاستبيان (Survey) --- */
-        .survey-section { padding: 40px 0; text-align: center; }
-
-        .section-title h2 {
-            font-size: 2rem;
-            color: var(--primary-color);
+        .section-header {
+            text-align: center;
             margin-bottom: 30px;
+            padding-top: 20px;
+        }
+
+        .section-header h2 {
+            color: var(--primary);
+            position: relative;
             display: inline-block;
-            border-bottom: 3px solid var(--secondary-color);
             padding-bottom: 10px;
         }
-
-        .form-wrapper {
-            background: #fff;
-            box-shadow: var(--shadow);
-            border-radius: 10px;
-            overflow: hidden;
-            max-width: 800px;
-            margin: 0 auto;
+        
+        .section-header h2::after {
+            content: '';
+            width: 50px; height: 4px; background: var(--accent);
+            position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+            border-radius: 2px;
         }
 
         iframe {
             width: 100%;
-            min-height: 1500px; /* ارتفاع كافٍ */
+            height: 1600px; /* ارتفاع كبير لضمان عدم وجود شريط تمرير داخلي */
             border: none;
+            border-radius: 10px;
         }
 
-        /* --- الفوتر (Footer) --- */
+        /* --- 6. الفوتر --- */
         footer {
-            background: #263238;
-            color: #eceff1;
-            padding: 30px 0;
+            background: #002244;
+            color: #aaa;
             text-align: center;
-            margin-top: 50px;
+            padding: 40px 20px;
             font-size: 0.9rem;
         }
+        
+        footer a { color: var(--accent); text-decoration: none; }
 
-        /* --- شاشة التحميل --- */
-        #loader {
-            position: fixed; inset: 0; background: #fff; z-index: 9999;
-            display: flex; align-items: center; justify-content: center; flex-direction: column;
-            transition: opacity 0.5s;
-        }
-        .spinner {
-            width: 40px; height: 40px;
-            border: 4px solid #eee; border-top-color: var(--primary-color);
-            border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 15px;
-        }
-        @keyframes spin { to { transform: rotate(360deg); } }
-
-        /* --- للموبايل --- */
+        /* --- Mobile Tweaks --- */
         @media (max-width: 768px) {
-            header h1 { font-size: 1.5rem; }
-            .card { padding: 25px; }
-            iframe { min-height: 1800px; }
+            .hero h1 { font-size: 1.8rem; }
+            .trust-bar { flex-direction: column; width: 95%; margin-top: -40px; }
+            .trust-item { border-bottom: 1px solid #eee; width: 100%; padding: 15px 0; }
+            .trust-item:last-child { border-bottom: none; }
+            iframe { height: 1800px; }
         }
     </style>
 </head>
 <body>
 
-    <div id="loader">
-        <div class="spinner"></div>
-        <p>جاري تجهيز الاستبيان...</p>
-    </div>
-
-    <header>
-        <div class="container">
-            <div class="logo-area" style="margin-bottom: 20px;">
-                <i class="fas fa-university fa-3x" style="opacity: 0.8;"></i>
-            </div>
-            <h1>استبيان حول أثر التحول الرقمي في الخدمات المالية على تعزيز الشمول المالي في المناطق الريفية الجزائرية</h1>
-            <p>
-                يهدف هذا البحث إلى دراسة أثر التحول الرقمي وخدمات الدفع الإلكتروني عبر الهاتف المحمول 
-                على الشمول المالي في المناطق الريفية. 
-                <br>
-                <span style="color: #ffecb3; font-weight: bold;">(جميع الإجابات سرية وتستعمل لأغراض علمية فقط)</span>
-            </p>
-            <a href="#survey-area" class="cta-btn">المشاركة في الاستبيان <i class="fas fa-arrow-down"></i></a>
+    <header class="hero">
+        <div class="content">
+            <i class="fas fa-scale-balanced fa-3x" style="color: var(--accent); margin-bottom: 20px;"></i>
+            <h1>أثر التحول الرقمي على الشمول المالي<br>في المناطق الريفية الجزائرية</h1>
+            <p>ندعوكم للمساهمة في هذا البحث العلمي الهادف إلى تطوير الخدمات المالية الرقمية وتسهيل حياة المواطن في الأرياف.</p>
+            <a href="#form-anchor" class="cta-btn">شارك الآن <i class="fas fa-angle-down"></i></a>
         </div>
     </header>
 
-    <section class="info-section">
-        <div class="container">
-            <div class="cards-grid">
-                <div class="card">
-                    <div class="card-icon"><i class="fas fa-mobile-alt"></i></div>
-                    <h3>الدفع الإلكتروني</h3>
-                    <p>قياس مدى استخدام تطبيقات الهاتف والخدمات الرقمية في المعاملات المالية اليومية في الأرياف.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon"><i class="fas fa-hand-holding-usd"></i></div>
-                    <h3>الشمول المالي</h3>
-                    <p>معرفة دور الرقمنة في تسهيل وصول الخدمات المالية لكافة فئات المجتمع في المناطق النائية.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon"><i class="fas fa-user-shield"></i></div>
-                    <h3>سرية المعلومات</h3>
-                    <p>نضمن لكم سرية تامة للبيانات المقدمة، حيث ستستخدم حصريًا لأغراض البحث العلمي الأكاديمي.</p>
-                </div>
-            </div>
+    <div class="trust-bar">
+        <div class="trust-item">
+            <i class="fas fa-stopwatch"></i>
+            <h4>سريع ومختصر</h4>
+            <span>لن يستغرق أكثر من 3 دقائق</span>
         </div>
-    </section>
+        <div class="trust-item">
+            <i class="fas fa-user-secret"></i>
+            <h4>سرية تامة</h4>
+            <span>إجابات مجهولة لأغراض علمية</span>
+        </div>
+        <div class="trust-item">
+            <i class="fas fa-mobile-screen-button"></i>
+            <h4>متوافق مع الجوال</h4>
+            <span>سهل التعبئة من الهاتف</span>
+        </div>
+    </div>
 
-    <section id="survey-area" class="survey-section">
-        <div class="container">
-            <div class="section-title">
-                <h2>نموذج الاستبيان</h2>
-            </div>
-            
-            <div class="form-wrapper">
-                <iframe 
-                    src="https://docs.google.com/forms/d/e/1FAIpQLSehG0tu3xaetaKIW8KGmzX0HDpE7GUm7ZaGPxoJ5kpxWS6Emw/viewform?embedded=true" 
-                    frameborder="0" 
-                    marginheight="0" 
-                    marginwidth="0">
-                    جاري التحميل...
-                </iframe>
-            </div>
-            
-            <div style="margin-top: 20px; font-size: 0.9rem; color: #666;">
-                إذا واجهت صعوبة في تعبئة النموذج أعلاه، <a href="https://docs.google.com/forms/d/e/1FAIpQLSehG0tu3xaetaKIW8KGmzX0HDpE7GUm7ZaGPxoJ5kpxWS6Emw/viewform" target="_blank" style="color: var(--primary-color);">اضغط هنا لفتحه في نافذة جديدة</a>
-            </div>
+    <div id="form-anchor" class="survey-container">
+        <div class="section-header">
+            <h2>نموذج الاستبيان</h2>
+            <p style="margin-top: 10px; color: #666;">يرجى الإجابة بدقة لضمان جودة النتائج البحثية</p>
         </div>
-    </section>
+
+        <div class="glass-card">
+            <iframe 
+                src="https://docs.google.com/forms/d/e/1FAIpQLSehG0tu3xaetaKIW8KGmzX0HDpE7GUm7ZaGPxoJ5kpxWS6Emw/viewform?embedded=true" 
+                marginheight="0" 
+                marginwidth="0">
+                جاري التحميل...
+            </iframe>
+        </div>
+        
+        <div style="text-align: center; margin-top: 20px;">
+            <p style="font-size: 0.9rem; color: #555;">هل تواجه مشكلة في العرض؟ 
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSehG0tu3xaetaKIW8KGmzX0HDpE7GUm7ZaGPxoJ5kpxWS6Emw/viewform" target="_blank" style="color: var(--primary); font-weight: bold;">اضغط هنا</a>
+            </p>
+        </div>
+    </div>
 
     <footer>
-        <div class="container">
-            <p>بحث أكاديمي - 2026</p>
-            <p style="opacity: 0.7; font-size: 0.8rem;">كلية العلوم الاقتصادية والتجارية وعلوم التسيير / الحقوق</p>
-        </div>
+        <p>&copy; 2026 جميع الحقوق محفوظة للبحث العلمي.</p>
+        <p>كلية العلوم الاقتصادية | جامعة دكتور مولاي الطاهر سعيدة</p>
     </footer>
 
-    <script>
-        // إخفاء شاشة التحميل
-        window.addEventListener('load', () => {
-            const loader = document.getElementById('loader');
-            loader.style.opacity = '0';
-            setTimeout(() => loader.style.display = 'none', 500);
-        });
-    </script>
 </body>
 </html>
